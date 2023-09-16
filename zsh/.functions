@@ -1,0 +1,32 @@
+# python env
+function venv() {
+    if [ "$1" != "" ]
+    then
+        python3 -m venv $1
+    else
+        python3 -m venv venv
+    fi
+}
+
+function activate() {
+    local envName=""
+    if [ "$1" != "" ]
+    then
+        envName=$1
+    elif [[ ${history[@][1]} =~ "^venv$" ]]
+    then
+        envName=venv
+    elif [[ ${history[@][1]} =~ "^venv .*$" ]]
+    then
+        envName=${${(A)=history[@][1]}[2]}
+    else
+        >&2 echo "Environment name is required."
+        return 1
+    fi
+    source $envName/bin/activate
+}
+
+# Expand an alias
+get_alias() {
+  echo $aliases[$1]
+}

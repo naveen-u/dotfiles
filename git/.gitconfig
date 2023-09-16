@@ -1,0 +1,9 @@
+[user]
+	email = naveenunnikrishnan98@gmail.com
+	name = Naveen Unnikrishnan
+[alias]
+	unstage = restore --staged
+	uncommit = reset --soft HEAD^
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+[init]
+	defaultBranch = main
