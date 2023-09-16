@@ -30,3 +30,10 @@ function activate() {
 get_alias() {
   echo $aliases[$1]
 }
+
+# mkdir and cd in one go
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+       cd -P -- "$1"
+}
