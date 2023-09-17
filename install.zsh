@@ -17,6 +17,10 @@ fi
 # Check for the DOTFILES env var. Default to ~/.dotfiles if not found
 DOTFILES_DIR=${DOTFILES:-$HOME/.dotfiles}
 
+if [[ $(git -C $DOTFILES_DIR rev-parse --is-inside-work-tree) != "true" ]]; then
+    git clone https://github.com/naveen-u/dotfiles.git $DOTFILES_DIR
+fi
+
 for module in $DOTFILES_DIR/*/; do
     modulename=$module:t
     stow -d $DOTFILES_DIR -t $HOME --adopt -v $modulename
