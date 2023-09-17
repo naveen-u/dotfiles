@@ -1,3 +1,8 @@
+# tmux autostart. Placing it here so that it can be overridden in the local file.
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOQUIT=false
+ZSH_TMUX_DEFAULT_SESSION_NAME=main
+
 # Source instance-specific zshrc
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
@@ -94,9 +99,6 @@ plugins=(
 	zsh-autosuggestions
 	tmux
 )
-
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_DEFAULT_SESSION_NAME=main
 
 source $ZSH/oh-my-zsh.sh
 
