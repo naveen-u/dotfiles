@@ -92,7 +92,11 @@ plugins=(
 	git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
+	tmux
 )
+
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_DEFAULT_SESSION_NAME=main
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,7 +134,7 @@ source ~/.functions
 
 # Source instance-specific aliases
 if [ -f ~/.aliases.local ]; then
-    source ~/.aliases.local
+  source ~/.aliases.local
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -139,3 +143,4 @@ fi
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 export EDITOR="vim"
+
