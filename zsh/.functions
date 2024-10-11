@@ -1,3 +1,8 @@
+# Source instance-specific zshrc
+if [ -f ~/.functions.local ]; then
+    source ~/.functions.local
+fi
+
 # python env
 function venv() {
     if [ "$1" != "" ]
@@ -29,11 +34,4 @@ function activate() {
 # Expand an alias
 get_alias() {
   echo $aliases[$1]
-}
-
-# mkdir and cd in one go
-mkcdir ()
-{
-    mkdir -p -- "$1" &&
-       cd -P -- "$1"
 }

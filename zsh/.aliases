@@ -1,3 +1,8 @@
+# Source instance-specific aliases
+if [ -f ~/.aliases.local ]; then
+  source ~/.aliases.local
+fi
+
 # git
 alias gs='git status'
 alias ga='git add'
