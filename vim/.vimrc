@@ -20,6 +20,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 Plug 'morhetz/gruvbox'
+Plug 'psf/black', { 'branch': 'stable' }
 
 call plug#end()
 
