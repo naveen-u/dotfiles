@@ -55,3 +55,7 @@ set autoindent
 set smartcase
 set hlsearch
 set incsearch
+
+" Paste mode shortcut
+set pastetoggle=<F10>
+
