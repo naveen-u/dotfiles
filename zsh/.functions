@@ -37,10 +37,23 @@ get_alias() {
 }
 
 # Convenience methods for creating leetcode solution files
+function lcname() {
+    echo ${${(s:/:)1}[4]}
+}
+
+function lcid() {
+    curl -s 'https://leetcode.com/graphql/' \
+        -H 'content-type: application/json' \
+        -H 'cookie: csrftoken=foo' \
+        -H 'referer: '"$1" \
+        -H 'x-csrftoken: foo' \
+        --data-raw $'{"query":" query questionTitle($titleSlug: String!) {question(titleSlug: $titleSlug) { questionFrontendId }}","variables":{"titleSlug":"'$(lcname $1)'"},"operationName":"questionTitle"}' | jq -r .data.question.questionFrontendId
+}
+
 function lc() {
     name=$(echo ${${(s:/:)1}[4]})
-    num=$2
-    ext=${3:-py}
+    num=$(lcid $1)
+    ext=${2:-py}
     echo "$name-$num.$ext" | sed s/-/_/g
 }
 
@@ -51,13 +64,13 @@ function lccopy() {
 function vimlc() {
     url=$(echo $1 | grep -P -o '^(.*?/){5}' | sed 's/.$//')
     fname=$(lc $@)
-    if [[ -z "$3" ]]; then
+    if [[ -z "$2" ]]; then
         if [[ -f "$fname" ]]; then
             vim -c ":exe \"autocmd BufWritePre *.py :Black\"" $fname
         else
             vim -c ":exe \"autocmd BufWritePre *.py :Black\" | exe \"normal i# $url\n\n\n\"" $fname
         fi
-    elif [[ "$3" == "cpp" ]]; then
+    elif [[ "$2" == "cpp" ]]; then
         if [[ -f "$fname" ]]; then
             vim $fname
         else
