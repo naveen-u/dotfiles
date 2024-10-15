@@ -35,3 +35,35 @@ function activate() {
 get_alias() {
   echo $aliases[$1]
 }
+
+# Convenience methods for creating leetcode solution files
+function lc() {
+    name=$(echo ${${(s:/:)1}[4]})
+    num=$2
+    ext=${3:-py}
+    echo "$name-$num.$ext" | sed s/-/_/g
+}
+
+function lccopy() {
+    lc $@ | xclip -selection clipboard
+}
+
+function vimlc() {
+    url=$(echo $1 | grep -P -o '^(.*?/){5}' | sed 's/.$//')
+    fname=$(lc $@)
+    if [[ -z "$3" ]]; then
+        if [[ -f "$fname" ]]; then
+            vim -c ":exe \"autocmd BufWritePre *.py :Black\"" $fname
+        else
+            vim -c ":exe \"autocmd BufWritePre *.py :Black\" | exe \"normal i# $url\n\n\n\"" $fname
+        fi
+    elif [[ "$3" == "cpp" ]]; then
+        if [[ -f "$fname" ]]; then
+            vim $fname
+        else
+            vim -c ":set formatoptions-=r | exe \"normal i// $url\n\n\n\"" $fname
+        fi
+    else
+        vim $fname
+    fi
+}
