@@ -18,3 +18,4 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias dots='cd $DOTFILES'
+alias beep="echo -ne '\007'"
