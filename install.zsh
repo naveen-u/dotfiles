@@ -18,7 +18,7 @@ fi
 DOTFILES_DIR=${DOTFILES:-$HOME/.dotfiles}
 
 if [[ $(git -C $DOTFILES_DIR rev-parse --is-inside-work-tree) != "true" ]]; then
-    git clone https://github.com/naveen-u/dotfiles.git $DOTFILES_DIR
+    git clone --recurse-submodules -j2 https://github.com/naveen-u/dotfiles.git $DOTFILES_DIR
 fi
 
 for module in $DOTFILES_DIR/*/; do
