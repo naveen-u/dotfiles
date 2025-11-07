@@ -13,6 +13,10 @@ alias guc='git reset --soft HEAD^'  # undo the last commit
 alias gr='git restore'
 alias grs='git restore --staged'
 
+# Muscle memory from using sapling
+alias ss='git status'
+alias sd='git diff'
+
 # gen utilities
 alias ll='ls -alF'
 alias la='ls -A'
