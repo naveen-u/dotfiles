@@ -98,7 +98,6 @@ plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	tmux
-	poetry
 )
 
 source $ZSH/oh-my-zsh.sh
