@@ -17,7 +17,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # include mongo shell in path
 if [ -d "$HOME/mongo/mongodb-linux-x86_64-ubuntu2004-4.4.4/bin" ] ; then
@@ -97,7 +97,6 @@ plugins=(
 	git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -143,4 +142,5 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 export EDITOR="vim"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
