@@ -1,6 +1,7 @@
 [user]
 	email = naveenunnikrishnan98@gmail.com
 	name = Naveen Unnikrishnan
+	signingkey = /home/naveen/.ssh/id_rsa.pub
 [alias]
 	unstage = restore --staged
 	uncommit = reset --soft HEAD^
@@ -11,3 +12,7 @@
 	autoSetupRemote = true
 [diff]
   tool = nvimdiff
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
