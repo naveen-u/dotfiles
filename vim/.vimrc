@@ -35,6 +35,10 @@ set smartcase
 set hlsearch
 set incsearch
 
+" Copy to Wayland clipboard
+nnoremap <C-@> :call system("wl-copy", @")<CR>
+
+
 " Auto paste mode
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
