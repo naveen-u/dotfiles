@@ -23,3 +23,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias dots='cd $DOTFILES'
 alias beep="echo -ne '\007'"
+
+# Pipe to clipboard
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    alias yank="wl-copy"
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    alias yank="xclip -selection clipboard"
+fi
