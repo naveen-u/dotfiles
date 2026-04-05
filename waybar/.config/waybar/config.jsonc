@@ -1,0 +1,267 @@
+// -*- mode: jsonc -*-
+{
+    "spacing": 10,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/scratchpad",
+        "sway/mode",
+        "sway/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "privacy",
+        "tray",
+        "battery",
+        "group/power-group",
+        "custom/notification"
+    ],
+    // Modules configuration
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "sway/window": {
+        "format": "{title}",
+        "icon": true,
+        "max-length": 50,
+        "rewrite": {
+            "(.*) Mozilla Firefox": "Firefox",
+            "(.*) Mozilla Firefox Private Browsing": "Firefox 󰗹",
+            "vim (.*)": " $1",
+            "(.*) - zsh": " [$1]"
+        }
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰈈",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a, %b %d  %H:%M}",
+        "format-alt": "{:%A, %B %d, %Y  %R }",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#b7bdf8'><b>{}</b></span>",
+                "days":       "<span color='#cad3f5'><b>{}</b></span>",
+                "weeks":      "<span color='#5b6078'><b>W{}</b></span>",
+                "weekdays":   "<span color='#a5adcb'><b>{}</b></span>",
+                "today":      "<span color='#f5a97f'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{capacity}%\n{timeTo}"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "󰖪",
+        "on-click": "ghostty --title=nmtui -e nmtui"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-connected": "",
+        "format-connected-battery": "",
+        "format-disabled": "󰂲",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ]
+    },
+    "pulseaudio": {
+        "format": "<span size='smaller' stretch='ultracondensed'>{volume}%</span> {icon}  {format_source}",
+        "format-bluetooth": "<span size='smaller' stretch='ultracondensed'>{volume}%</span> {icon}<sup></sup>  {format_source}",
+        "format-bluetooth-muted": " {icon}<sup></sup>  {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "<span size='smaller' stretch='ultracondensed'>{volume}%</span> ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    // "custom/media": {
+    //     "format": "{icon} {text}",
+    //     "return-type": "json",
+    //     "max-length": 40,
+    //     "format-icons": {
+    //         "spotify": "",
+    //         "default": "🎜"
+    //     },
+    //     "escape": true,
+    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    //     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    // },
+    "group/power-group": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "power-item",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/shutdown",
+            "custom/reboot",
+            "custom/logout",
+            "custom/suspend",
+            "custom/lock"
+        ]
+    },
+    "custom/power-menu": {
+        "format": "⏻",
+        "tooltip": false
+    },
+    "custom/shutdown": {
+        "format": "⏻",
+        "tooltip": true,
+        "tooltip-format": "Shutdown",
+        "on-click": "systemctl poweroff"
+    },
+    "custom/reboot": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Reboot",
+        "on-click": "systemctl reboot"
+    },
+    "custom/logout": {
+        "format": "󰍃",
+        "tooltip": true,
+        "tooltip-format": "Log Out",
+        "on-click": "swaymsg exit"
+    },
+    "custom/suspend":  {
+        "format": "⏸",
+        "tooltip": true,
+        "tooltip-format": "Hibernate",
+        "on-click": "systemctl suspend"
+    },
+    "custom/lock": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Lock screen",
+        "on-click": "swaylock"
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

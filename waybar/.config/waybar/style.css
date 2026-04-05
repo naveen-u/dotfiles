@@ -1,0 +1,121 @@
+@import "macchiato.css";
+
+* {
+    /* reference the color by using @color-name */
+    font-family: 'JetBrainsMono Nerd Font Propo';
+    color: @text;
+}
+
+tooltip {
+    background-color: @base;
+    color: @text;
+    border: 1px solid @lavender;
+}
+
+window#waybar {
+    /* you can also GTK3 CSS functions! */
+    background-color: transparent;
+}
+
+#window,
+#workspaces {
+    margin-left: 10px;
+}
+
+#workspaces button {
+    margin: 4px 1px;
+    padding: 4px 4px;
+    border-radius: 16px;
+    min-width: 18px;
+}
+
+#workspaces button.focused {
+    background-color: @surface2;
+}
+
+#workspaces button.urgent {
+    background-color: alpha(@peach, 0.5);
+}
+
+#idle_inhibitor {
+    font-size: 14px;
+    border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 8px;
+    min-width: 18px;
+}
+
+#idle_inhibitor.activated {
+    background-color: @base;
+}
+
+#bluetooth {
+    font-size: 16px;
+    min-width: 16px;
+    border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 8px;
+    border: 2px solid @base;
+}
+
+#bluetooth.connected {
+    background-color: @base;
+}
+
+#tray,
+#pulseaudio,
+#network {
+    background-color: @base;
+    border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 8px;
+}
+
+#network.disabled,
+#network.disconnected {
+    background-color: transparent;
+    border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 8px;
+}
+
+#battery {
+    color: lightgreen;
+    border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 8px;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#power-group {
+    border: 2px solid @base;
+    border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 4px;
+}
+
+#power-group label {
+    color: @red;
+    font-size: 14px;
+    padding: 0 6px;
+}
+
+#power-group:hover {
+    border: 0px;
+    background-color: shade(red, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+#custom-notification {
+    color: @text;
+    font-size: 16px;
+    margin: 4px 12px 4px 0px;
+    padding: 4px 8px;
+}
