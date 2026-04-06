@@ -47,34 +47,28 @@ window#waybar {
 
 #idle_inhibitor.activated {
     background-color: @base;
-}
-
-#bluetooth {
-    font-size: 16px;
-    min-width: 16px;
-    border-radius: 16px;
-    margin: 4px 0px;
-    padding: 4px 8px;
-    border: 2px solid @base;
-}
-
-#bluetooth.connected {
-    background-color: @base;
+    border: 1px solid lightgreen;
 }
 
 #tray,
-#pulseaudio,
-#network {
+#pulseaudio {
     background-color: @base;
     border-radius: 16px;
     margin: 4px 0px;
-    padding: 4px 8px;
+    padding: 4px 12px;
 }
 
-#network.disabled,
-#network.disconnected {
-    background-color: transparent;
+#mpris {
+    background-color: @base;
     border-radius: 16px;
+    margin: 4px 0px;
+    padding: 4px 12px;
+}
+
+#privacy {
+    background-color: @base;
+    border-radius: 16px;
+    border: 1px solid lightgreen;
     margin: 4px 0px;
     padding: 4px 8px;
 }

@@ -13,11 +13,10 @@
     "modules-right": [
         "idle_inhibitor",
         "pulseaudio",
-        "network",
-        "bluetooth",
-        "privacy",
+        "mpris",
         "tray",
         "battery",
+        "privacy",
         "group/power-group",
         "custom/notification"
     ],
@@ -43,31 +42,20 @@
             "(.*) - zsh": " [$1]"
         }
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
+    "mpris": {
+        "format": "{player_icon}  <span size='smaller' stretch='ultracondensed'>{title} - {artist}</span>",
+        "format-paused": "{status_icon}  <span size='smaller' stretch='ultracondensed'>{title} - {artist}</span>",
+        "title-len": 20,
+        "artist-len": 15,
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵",
+            "spotify": ""
         },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+        "status-icons": {
+            "paused": "⏸"
         },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "ignored-players": ["firefox"]
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -118,43 +106,16 @@
         "format-full": "{icon}",
         "format-charging": "󰂄",
         "format-plugged": "",
-        "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
         "tooltip-format": "{capacity}%\n{timeTo}"
     },
-    "network": {
-        "format-wifi": "",
-        "format-ethernet": "{ipaddr}/{cidr}",
-        "tooltip-format": "{essid} ({signalStrength}%)",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "󰖪",
-        "on-click": "ghostty --title=nmtui -e nmtui"
-    },
-    "bluetooth": {
-        "format": " {status}",
-        "format-on": "",
-        "format-off": "󰂲",
-        "format-connected": "",
-        "format-connected-battery": "",
-        "format-disabled": "󰂲",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "blueman-manager"
-    },
     "privacy": {
-        "icon-spacing": 4,
-        "icon-size": 18,
+        "icon-spacing": 10,
+        "icon-size": 16,
         "transition-duration": 250,
         "modules": [
             {
                 "type": "screenshare",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            },
-            {
-                "type": "audio-out",
                 "tooltip": true,
                 "tooltip-icon-size": 24
             },
@@ -183,18 +144,6 @@
         },
         "on-click": "pavucontrol"
     },
-    // "custom/media": {
-    //     "format": "{icon} {text}",
-    //     "return-type": "json",
-    //     "max-length": 40,
-    //     "format-icons": {
-    //         "spotify": "",
-    //         "default": "🎜"
-    //     },
-    //     "escape": true,
-    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    //     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    // },
     "group/power-group": {
         "orientation": "inherit",
         "drawer": {
