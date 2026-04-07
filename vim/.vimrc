@@ -5,7 +5,7 @@ set clipboard=unnamedplus
 set termguicolors
 
 " Cosmetics
-colorscheme catppuccin_macchiato
+colorscheme catppuccin_mocha
 set background=dark             " use colors that look good on a dark background
 set lazyredraw                  " don't redraw the screen when we don't have to
 set list                        " show certain non-printable characters
