@@ -1,0 +1,10 @@
+theme = Catppuccin Mocha
+
+gtk-titlebar = true
+gtk-single-instance = true
+gtk-tabs-location = top
+gtk-wide-tabs = false
+window-padding-y = 15,10
+window-padding-x = 15
+window-padding-balance = true
+window-decoration = none
