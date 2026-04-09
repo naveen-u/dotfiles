@@ -2,7 +2,7 @@
 
 * {
     /* reference the color by using @color-name */
-    font-family: 'JetBrainsMono Nerd Font Propo';
+    font-family: 'RobotoMono Nerd Font Propo';
     color: @text;
 }
 
