@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 ## Internal variables
-readonly _SWAY_COMMAND="dbus-run-session /usr/bin/sway"
+readonly _SWAY_COMMAND="/usr/bin/sway"
 SWAY_EXTRA_ARGS=""
 
 ## General exports
