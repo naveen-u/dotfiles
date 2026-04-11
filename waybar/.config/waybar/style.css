@@ -14,7 +14,8 @@ tooltip {
 
 window#waybar {
     /* you can also GTK3 CSS functions! */
-    background-color: transparent;
+    background-color: alpha(@crust, 0.25);
+    border-radius: 16px;
 }
 
 #window,
