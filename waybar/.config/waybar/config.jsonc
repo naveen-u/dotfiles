@@ -37,8 +37,10 @@
         "icon": true,
         "max-length": 50,
         "rewrite": {
-            "(.*) Mozilla Firefox": "Firefox",
-            "(.*) Mozilla Firefox Private Browsing": "Firefox 󰗹",
+            "(.*)Mozilla Firefox": "Firefox",
+            "(.*)Mozilla Firefox Private Browsing": "Firefox 󰗹",
+            "(.*)Zen Browser": "Zen",
+            "(.*)Zen Browser Private Browsing": "Zen 󰗹",
             "vim (.*)": " $1",
             "(.*) - zsh": " [$1]"
         }
