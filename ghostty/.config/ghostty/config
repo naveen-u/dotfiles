@@ -8,3 +8,5 @@ window-padding-y = 15,10
 window-padding-x = 15
 window-padding-balance = true
 window-decoration = none
+
+font-size = 11
