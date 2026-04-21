@@ -12,12 +12,12 @@
         "clock"
     ],
     "modules-right": [
+        "group/privacy-group",
         "idle_inhibitor",
         "pulseaudio",
         "mpris",
         "tray",
         "battery",
-        "privacy",
         "group/power-group",
         "custom/notification"
     ],
@@ -147,6 +147,13 @@
         },
         "on-click": "pavucontrol"
     },
+    "group/privacy-group": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/webcam",
+            "privacy",
+        ]
+    },
     "group/power-group": {
         "orientation": "inherit",
         "drawer": {
@@ -215,5 +222,12 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+    "custom/webcam": {
+        "exec": "~/.local/bin/webcam-indicator.sh",
+        "return-type": "json",
+        "interval": 2,
+        "format": "{text}",
+        "hide-empty-text": true
     }
 }

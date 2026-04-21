@@ -66,11 +66,23 @@ window#waybar {
     padding: 4px 12px;
 }
 
-#privacy {
+#privacy-group {
+    margin: 4px 0px;
+}
+
+#custom-webcam {
+    font-size: 16px;
+    margin: 0px 10px 0px 0px;
+    border: 1px solid lightgreen;
     background-color: @base;
     border-radius: 16px;
+    padding: 4px 8px;
+}
+
+#privacy-item {
     border: 1px solid lightgreen;
-    margin: 4px 0px;
+    background-color: @base;
+    border-radius: 16px;
     padding: 4px 8px;
 }
 
