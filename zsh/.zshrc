@@ -144,3 +144,7 @@ export EDITOR="vim"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# Use bat as manpager if available
+command -v bat >/dev/null 2>&1 && export MANPAGER="bat -plman"
+
