@@ -12,11 +12,11 @@
         "clock"
     ],
     "modules-right": [
-        "group/privacy-group",
         "idle_inhibitor",
         "pulseaudio",
         "mpris",
         "tray",
+        "custom/privacy",
         "battery",
         "group/power-group",
         "custom/notification"
@@ -112,23 +112,6 @@
         "format-icons": ["", "", "", "", ""],
         "tooltip-format": "{capacity}%\n{timeTo}"
     },
-    "privacy": {
-        "icon-spacing": 10,
-        "icon-size": 16,
-        "transition-duration": 250,
-        "modules": [
-            {
-                "type": "screenshare",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            },
-            {
-                "type": "audio-in",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            }
-        ]
-    },
     "pulseaudio": {
         "format": "<span size='smaller' stretch='ultracondensed'>{volume}%</span> {icon}  {format_source}",
         "format-bluetooth": "<span size='smaller' stretch='ultracondensed'>{volume}%</span> {icon}<sup></sup>  {format_source}",
@@ -146,13 +129,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "group/privacy-group": {
-        "orientation": "inherit",
-        "modules": [
-            "custom/webcam",
-            "privacy",
-        ]
     },
     "group/power-group": {
         "orientation": "inherit",
@@ -223,11 +199,14 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
-    "custom/webcam": {
-        "exec": "~/.local/bin/webcam-indicator.sh",
+    "custom/privacy": {
+        "exec": "~/.local/bin/privacy-indicators.sh",
         "return-type": "json",
-        "interval": 2,
+        "interval": 3,
         "format": "{text}",
-        "hide-empty-text": true
+        "hide-empty-text": true,
+        "tooltip": true,
+        "escape": true,
+        "markup": "pango"
     }
 }

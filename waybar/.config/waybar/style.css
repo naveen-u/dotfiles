@@ -66,24 +66,13 @@ window#waybar {
     padding: 4px 12px;
 }
 
-#privacy-group {
+#custom-privacy {
+    background-color: @base;
+    border: 1px solid lightgreen;
+    border-radius: 16px;
     margin: 4px 0px;
-}
-
-#custom-webcam {
+    padding: 4px 12px;
     font-size: 16px;
-    margin: 0px 10px 0px 0px;
-    border: 1px solid lightgreen;
-    background-color: @base;
-    border-radius: 16px;
-    padding: 4px 8px;
-}
-
-#privacy-item {
-    border: 1px solid lightgreen;
-    background-color: @base;
-    border-radius: 16px;
-    padding: 4px 8px;
 }
 
 #battery {
