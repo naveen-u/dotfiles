@@ -177,7 +177,7 @@
         "format": "",
         "tooltip": true,
         "tooltip-format": "Lock screen",
-        "on-click": "swaylock"
+        "on-click": "hyprlock"
     },
     "custom/notification": {
         "tooltip": true,
