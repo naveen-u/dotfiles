@@ -1,9 +1,6 @@
 -- Use space as leader key
 vim.g.mapleader = " "
 
--- Open explorer
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Explore" })
-
 -- CTRL+s to save in normal or input mode
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save buffer" })
 
