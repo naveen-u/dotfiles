@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+# Convenience script to get the name of the solution file given the leetcode
+# quesiton URL and an optional file extension (defaults to .py).
+#
+# For example:
+#   $   lc https://leetcode.com/problems/fizz-buzz
+#       fizz_buzz_412.cpp
+
+function lcname() {
+    echo ${${(s:/:)1}[4]}
+}
+
+function lcid() {
+    curl -s 'https://leetcode.com/graphql/' \
+        -H 'content-type: application/json' \
+        -H 'cookie: csrftoken=foo' \
+        -H 'referer: '"$1" \
+        -H 'x-csrftoken: foo' \
+        --data-raw $'{"query":" query questionTitle($titleSlug: String!) {question(titleSlug: $titleSlug) { questionFrontendId }}","variables":{"titleSlug":"'$(lcname $1)'"},"operationName":"questionTitle"}' | jq -r .data.question.questionFrontendId
+}
+
+name=$(lcname $1)
+num=$(lcid $1)
+ext=${2:-py}
+echo "$name-$num.$ext" | sed s/-/_/g
