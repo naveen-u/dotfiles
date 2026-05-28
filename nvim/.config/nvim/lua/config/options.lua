@@ -10,6 +10,11 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1 -- Use value of shiftwidth
 vim.opt.smarttab = true -- Always use shiftwidth
 vim.opt.autoindent = true
+vim.opt.list = false
+vim.opt.listchars = {
+	tab = "↹·",
+	trail = "·",
+}
 
 -- Search
 vim.opt.hlsearch = false

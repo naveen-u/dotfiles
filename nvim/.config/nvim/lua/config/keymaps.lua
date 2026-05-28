@@ -34,3 +34,6 @@ vim.keymap.set({ "n", "v" }, "<C-c>", [["+y]])
 -- Paste from system clipboard
 vim.keymap.set({ "n", "v" }, "<C-S-v>", [["+p]])
 vim.keymap.set("i", "<C-v>", '<ESC>"+pa')
+
+-- Toggle list chars
+vim.keymap.set("n", "<leader><Tab>", "<cmd>set list!<CR>", { desc = "Toggle list chars" })
