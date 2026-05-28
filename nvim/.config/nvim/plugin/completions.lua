@@ -8,7 +8,7 @@ vim.pack.add({
 })
 
 -- Setup blink.cmp
-local cmp = require('blink.cmp')
+local cmp = require("blink.cmp")
 cmp.build():wait(60000)
 cmp.setup({
 	-- Keymap preset: 'default', 'super-tab', or 'enter'
@@ -30,14 +30,14 @@ cmp.setup({
 	},
 
 	completion = {
-        menu = {
-            border = "rounded",
-        },
+		menu = {
+			border = "rounded",
+		},
 		-- Show documentation popup automatically
 		documentation = {
-            window = {
-                border = "rounded",
-            },
+			window = {
+				border = "rounded",
+			},
 			auto_show = true,
 			auto_show_delay_ms = 200,
 		},

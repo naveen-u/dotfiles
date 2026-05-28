@@ -17,8 +17,8 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Tab new" })
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<CR>", { desc = "Tab only" })
 
 -- Panes
-vim.keymap.set("n", "<Leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
-vim.keymap.set("n", "<Leader>wh", "<cmd>split<CR>", { desc = "Horizontal split" })
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
+vim.keymap.set("n", "<leader>wh", "<cmd>split<CR>", { desc = "Horizontal split" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Switch to left pane" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Switch to bottom pane" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Switch to top pane" })

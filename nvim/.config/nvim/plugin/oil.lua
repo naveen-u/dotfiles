@@ -1,11 +1,11 @@
 vim.pack.add({
-    "https://github.com/stevearc/oil.nvim"
+	"https://github.com/stevearc/oil.nvim",
 })
 
 require("oil").setup({
-    view_options = {
-        show_hidden = true,
-    },
+	view_options = {
+		show_hidden = true,
+	},
 })
 
 -- Keymap to open Oil

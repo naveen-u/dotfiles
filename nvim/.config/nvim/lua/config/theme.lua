@@ -10,10 +10,10 @@ require("catppuccin").setup({
 		blink_cmp = {
 			style = "bordered",
 		},
-        telescope = {
-            enabled = true,
-        },
-        which_key = true,
+		telescope = {
+			enabled = true,
+		},
+		which_key = true,
 	},
 })
 

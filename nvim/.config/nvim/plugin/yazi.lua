@@ -7,5 +7,5 @@ require("yazi").setup()
 
 -- Keymap to open yazi.nvim
 vim.keymap.set("n", "<leader>-", function()
-  require("yazi").yazi()
+	require("yazi").yazi()
 end)
