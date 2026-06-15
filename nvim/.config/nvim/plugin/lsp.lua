@@ -19,6 +19,8 @@ require("mason-lspconfig").setup({
 	automatic_enable = false,
 })
 
+---------------------- LSP Configs ----------------------
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
@@ -26,6 +28,26 @@ vim.lsp.config("lua_ls", {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
 		},
+	},
+})
+
+vim.lsp.config("texlab", {
+	settings = {
+		texlab = {
+			build = { onSave = false },
+		},
+	},
+})
+
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--background-index", -- index project in background, persist to disk
+		"--clang-tidy", -- enable clang-tidy diagnostics
+		"--all-scopes-completion", -- suggest symbols from all namespaces, not just visible ones
+		"--completion-style=detailed", -- show full type info per overload instead of bundling
+		"--header-insertion=iwyu", -- auto-insert #include for used symbols
+		"--pch-storage=memory", -- keep precompiled headers in memory (faster, more RAM)
 	},
 })
 
@@ -57,6 +79,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.diagnostic.jump({ count = -1, float = true })
 		end, { buffer = bufnr, remap = false, desc = "Goto prev error" })
 
+		vim.keymap.set("n", "grn", function()
+			vim.lsp.buf.rename()
+		end, { buffer = bufnr, remap = false, desc = "Rename symbol" })
+
 		vim.keymap.set("n", "<leader>vd", function()
 			vim.diagnostic.open_float()
 		end, { buffer = bufnr, remap = false, desc = "View diagnostics" })
@@ -64,5 +90,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>vh", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end, { buffer = bufnr, remap = false, desc = "Toggle inlay hints" })
+
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover()
+		end, { buffer = bufnr, remap = false, desc = "Hover" })
 	end,
 })
