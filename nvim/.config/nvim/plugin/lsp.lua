@@ -91,6 +91,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end, { buffer = bufnr, remap = false, desc = "Toggle inlay hints" })
 
+		vim.keymap.set("n", "<leader>ca", function()
+			vim.lsp.buf.code_action()
+		end, { buffer = bufnr, remap = false, desc = "LSP Code Action" })
+
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover()
 		end, { buffer = bufnr, remap = false, desc = "Hover" })
