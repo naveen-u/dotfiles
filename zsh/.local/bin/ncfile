@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+# Convenience script to get the name of the solution file given the neetcode
+# quesiton URL and an optional file extension (defaults to .py).
+#
+# For example:
+#   $   lc https://neetcode.com/problems/fizz-buzz
+#       fizz_buzz.cpp
+
+function ncname() {
+    echo ${${(s:/:)1}[4]}
+}
+
+name=$(ncname $1)
+ext=${2:-py}
+echo "$name.$ext" | sed s/-/_/g
