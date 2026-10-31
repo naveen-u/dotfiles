@@ -1,5 +1,6 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
+  "preferred-monitor": "current"
   "ignore-gtk-theme": true,
   "positionX": "right",
   "positionY": "top",
